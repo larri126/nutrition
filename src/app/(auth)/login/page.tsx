@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useEffect, Suspense } from "react";
 import Link from "next/link";
@@ -35,7 +35,7 @@ function LoginForm() {
     const emailParam = searchParams.get("email");
     if (emailParam) {
       form.setValue("email", emailParam);
-      toast.info("Ya tenías cuenta. Hemos rellenado tu correo.");
+      toast.info("Ya tenÃ­as cuenta. Hemos rellenado tu correo.");
     }
   }, [searchParams, form]);
 
@@ -56,12 +56,12 @@ function LoginForm() {
         return;
       }
 
-      toast.success("¡Bienvenido de nuevo!");
+      toast.success("Â¡Bienvenido de nuevo!");
       router.push("/dashboard");
       router.refresh();
 
     } catch (err) {
-      toast.error("Ocurrió un error inesperado");
+      toast.error("OcurriÃ³ un error inesperado");
     } finally {
       setIsLoading(false);
     }
@@ -70,7 +70,7 @@ function LoginForm() {
   return (
     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
       <div className="space-y-2">
-        <Label htmlFor="email">Correo Electrónico</Label>
+        <Label htmlFor="email">Correo ElectrÃ³nico</Label>
         <Input 
           id="email" 
           type="email" 
@@ -85,9 +85,9 @@ function LoginForm() {
 
       <div className="space-y-2">
         <div className="flex items-center justify-between">
-          <Label htmlFor="password">Contraseña</Label>
-          <Link href="#" className="text-xs text-emerald-400 hover:underline">
-            ¿Olvidaste la contraseña?
+          <Label htmlFor="password">ContraseÃ±a</Label>
+          <Link href="/reset" className="text-xs text-emerald-400 hover:underline">
+            Â¿Olvidaste la contraseÃ±a?
           </Link>
         </div>
         <Input 
@@ -108,12 +108,12 @@ function LoginForm() {
   );
 }
 
-// Componente Principal Página
+// Componente Principal PÃ¡gina
 export default function LoginPage() {
   return (
     <Card className="w-full max-w-md bg-zinc-950 border-zinc-800 text-zinc-100">
       <CardHeader>
-        <CardTitle className="text-2xl font-bold text-center">Iniciar Sesión</CardTitle>
+        <CardTitle className="text-2xl font-bold text-center">Iniciar SesiÃ³n</CardTitle>
         <CardDescription className="text-center text-zinc-400">
           Accede a tu panel de entrenamiento
         </CardDescription>
@@ -133,9 +133,9 @@ export default function LoginPage() {
       </CardContent>
       <CardFooter className="justify-center">
         <p className="text-sm text-zinc-500">
-          ¿No tienes cuenta?{" "}
+          Â¿No tienes cuenta?{" "}
           <Link href="/register" className="text-emerald-400 hover:underline font-medium">
-            Regístrate gratis
+            RegÃ­strate gratis
           </Link>
         </p>
       </CardFooter>

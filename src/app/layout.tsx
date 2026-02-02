@@ -19,7 +19,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: "PowerFit SaaS",
   description: "Tu entrenador personal inteligente",
-  manifest: "@/public/manifest.json", // <--- ENLAZAR MANIFIESTO
+  manifest: "/manifest.json", // <--- ENLAZAR MANIFIESTO
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
