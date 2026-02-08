@@ -1,0 +1,96 @@
+@import "tailwindcss";
+@plugin "tailwindcss-animate";
+
+@theme {
+  --color-brand-lilac: #7c3aed;
+  --color-brand-dark: #5b21b6;
+  --color-brand-deep: #1e1b4b;
+  --color-brand-glow: rgba(124, 58, 237, 0.35);
+  /* Un poco más fuerte */
+
+  /* COLORES DE FONDO EXACTOS (Según capturas) */
+  --color-bg-main: #000000;
+  /* Fondo de la web */
+  --color-bg-card: #0A0A0A;
+  /* Fondo de la sidebar y tarjetas */
+  --color-bg-item: #171717;
+  /* Fondo de items dentro de tarjetas */
+  --color-bg-hover: #262626;
+  /* Hover */
+
+  --spacing-inner: 1.25rem;
+  --spacing-gap: 1rem;
+}
+
+@layer components {
+
+  /* --- CAJA MAESTRA (Bento Std) --- */
+  .bento-std {
+    @apply relative overflow-hidden rounded-3xl border border-white/5 bg-[var(--color-bg-card)];
+    @apply transition-all duration-300 ease-out;
+    @apply flex flex-col;
+    padding: var(--spacing-inner);
+    gap: var(--spacing-gap);
+  }
+
+  /* --- ITEM LISTA / FILA --- */
+  .bento-item {
+    @apply relative overflow-hidden rounded-2xl bg-[var(--color-bg-item)] border border-white/5;
+    @apply p-4 flex flex-col gap-1;
+    @apply transition-colors duration-200;
+  }
+
+  /* --- VARIANTE ROW (Sobrescribe flex-col) --- */
+  .bento-row {
+    @apply flex flex-row items-center gap-3 !important;
+  }
+
+  /* --- BOTONES / ELEMENTOS INTERACTIVOS --- */
+  .bento-interactive {
+    @apply cursor-pointer;
+
+    &:hover {
+      @apply bg-[var(--color-bg-hover)] border-white/10;
+    }
+
+    &:active {
+      @apply scale-[0.98];
+    }
+  }
+
+  /* --- ESTADO SELECCIONADO (Sidebar / Tabs) --- */
+  .bento-selected {
+    @apply bg-[var(--color-bg-item)] border-l-4 border-l-brand-lilac text-white;
+    /* Quitamos el borde completo, dejamos solo el izquierdo o un estilo distintivo */
+    @apply shadow-[0_0_30px_-10px_var(--color-brand-glow)];
+  }
+
+  /* --- INPUTS --- */
+  .bento-input-wrapper {
+    @apply w-full bg-[#050505] border border-white/10 rounded-xl px-4 py-3;
+    @apply flex items-center gap-3 transition-colors;
+
+    &:focus-within {
+      @apply border-brand-lilac shadow-[0_0_15px_-5px_var(--color-brand-glow)];
+    }
+  }
+
+  /* --- MODAL --- */
+  .bento-modal {
+    @apply fixed left-1/2 top-1/2 z-[100] -translate-x-1/2 -translate-y-1/2;
+    @apply w-[90%] max-w-lg max-h-[85vh] overflow-y-auto;
+    @apply bg-[#0A0A0A] border border-white/10 shadow-2xl rounded-[2rem] p-6;
+    /* Backdrop más oscuro */
+    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.8);
+  }
+
+  /* UTILS */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
