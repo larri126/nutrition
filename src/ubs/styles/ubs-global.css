@@ -1,0 +1,39 @@
+/* src/ubs/styles/ubs-global.css */
+
+.ubs-canvas {
+  display: grid;
+  width: 100%;
+  min-height: 100vh;
+  gap: 10px;
+  padding: 10px;
+  box-sizing: border-box;
+
+  /* --- DEFINICIÓN DEL TABLERO --- */
+  /* Por defecto 12 columnas (Estándar de diseño) */
+  --total-cols: 12; 
+  --row-height: auto;
+
+  /* Esto crea los "carriles" invisibles */
+  grid-template-columns: repeat(var(--total-cols), minmax(auto, 1fr));
+  
+  /* Esto asegura que si no especificas celda, se pongan al lado (columnas) no abajo */
+  grid-auto-flow: row dense; 
+  
+  /* Altura de filas automática o fija */
+  grid-auto-rows: minmax(50px, var(--row-height));
+}
+
+.ubs-box {
+  background: #121212;
+  border: 1px solid #333;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  
+  /* Asegura que el contenido no rompa la caja */
+  min-width: 0;
+  min-height: 0;
+}
